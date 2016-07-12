@@ -1,6 +1,41 @@
 #!/usr/bin/env bash
 # bin/compile <build-dir> <cache-dir> <env-dir>
 
+## BEGIN ZEROMQ SECTION
+
+BUILD_DIR=${1%/}
+CACHE_DIR=${2%/}
+ZMQ_SOURCE_URL="https://archive.org/download/zeromq_4.1.5/zeromq-4.1.5.tar.gz"
+ZMQ_name="zeromq-4.1.5"
+indent() {
+		sed -u 's/^/        /'
+}
+
+pecho() {
+		echo "-----> $1"
+}
+
+npecho() {
+		echo "       $1"
+}
+pecho "Starting ZMQ binding install - ktb -"
+cd $BUILD_DIR
+mkdir "zero-4.1.5"
+npecho "fetching"
+curl -sL $ZMQ_SOURCE_UR | tar -zxf -
+
+npecho "zeromq  unpacked in $BUILD_DIR/$ZMQ_NAME"
+
+npecho "setting zeromq compile flags"
+
+export LDFLAGS=-L$BUILD_DIR/$ZMQ_NAME/$ZMQ_NAME/lib
+export CPPFLAGS=-I$BUILD_DIR/$ZMQ_NAME/$ZMQ_NAME/include
+
+
+
+
+## END ZEROMQ SECTION
+
 ### Configure environment
 
 set -o errexit    # always exit on error

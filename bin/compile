@@ -28,6 +28,8 @@ npecho "fetching"
 curl -sL $ZMQ_SOURCE_URL | tar zxf -
 pecho "just did a curl"
 pecho `ls`
+cd "zeromq-4.1.5"
+pecho `ls`
 
 
 npecho "zeromq  unpacked in $BUILD_DIR/$ZMQ_NAME"

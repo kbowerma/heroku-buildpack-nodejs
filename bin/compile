@@ -20,7 +20,10 @@ npecho() {
 }
 pecho "Starting ZMQ binding install - ktb -"
 cd $BUILD_DIR
-mkdir "zero-4.1.5"
+mkdir "zeromq-4.1.5"
+
+pecho `ls -l`
+cd  "zeromq-4.1.5"
 npecho "fetching"
 curl -sL $ZMQ_SOURCE_UR | tar -zxf -
 

@@ -31,7 +31,8 @@ pecho `ls`
 cd "zeromq-4.1.5"
 pecho `ls`
 echo "check in the include dir"
-pecho `ls $BUILD_DIR/$ZMQ_NAME/$ZMQ_NAME/include`
+MYDIRLISTINGOUTPUT="ls -l $BUILD_DIR/$ZMQ_NAME/$ZMQ_NAME/include"
+pecho `MYDIRLISTINGOUTPUT`
 
 
 npecho "zeromq  unpacked in $BUILD_DIR/$ZMQ_NAME"
